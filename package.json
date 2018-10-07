@@ -1,8 +1,14 @@
 {
   "name": "sandbox",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "repository": "https://github.com/gcsgit/sandbox.git",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js" 
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
