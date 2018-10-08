@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -26,6 +27,7 @@ module.exports = {
     extensions: [ '*', '.js', '.jsx' ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin([ 'dist' ]),
     new CopyWebpackPlugin([ 
       { from: 'src/public' }, 
@@ -33,6 +35,7 @@ module.exports = {
     ])
   ],
   devServer: {
-    contentBase: './dist/public'
+    contentBase: './dist/public',
+    hot: true
   }
 }
