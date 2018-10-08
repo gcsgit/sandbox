@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -6,7 +7,7 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
-    filename: 'index.js',
+    filename: 'index.[hash].js',
     path: __dirname + '/dist/public',
     publicPath: '/'
   },
@@ -27,6 +28,7 @@ module.exports = {
     extensions: [ '*', '.js', '.jsx' ]
   },
   plugins: [
+    new HtmlWebpackPlugin({ template: 'src/public/index.html', inject: false }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin([ 'dist' ]),
     new CopyWebpackPlugin([ 
