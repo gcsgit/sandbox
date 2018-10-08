@@ -1,5 +1,6 @@
+const PORT = process.env.PORT || 8080
 const express = require('express')
 const app = express()
 app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'))
 app.use(express.static(__dirname + '/public'))
-app.listen(8080, () => console.log('listening on 8080'))
+app.listen(PORT, () => console.log(`listening on ${PORT}`))
