@@ -1,3 +1,4 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
@@ -21,6 +22,13 @@ module.exports = {
     extensions: [ '*', '.js', '.jsx' ]
   },
   plugins: [
-    new CopyWebpackPlugin([ 'src/public/index.html', { from: 'src/server.js', to: '../server.js' } ])
-  ]
+    new CleanWebpackPlugin([ 'dist' ]),
+    new CopyWebpackPlugin([ 
+      { from: 'src/public' }, 
+      { from: 'src/server.js', to: '../server.js' } 
+    ])
+  ],
+  devServer: {
+    contentBase: './dist/public'
+  }
 }
