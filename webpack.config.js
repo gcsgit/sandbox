@@ -31,10 +31,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'src/public/index.html', inject: false }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin([ 'dist' ]),
-    new CopyWebpackPlugin([ 
-      { from: 'src/public' }, 
-      { from: 'src/server.js', to: '../server.js' } 
-    ])
+    new CopyWebpackPlugin([ { from: 'src/public' }, { from: 'src/server.js', to: '../server.js' } ])
   ],
   devServer: {
     contentBase: './dist/public',
